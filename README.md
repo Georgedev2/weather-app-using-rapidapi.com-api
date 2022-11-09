@@ -1,6 +1,6 @@
 # This is a weather App using rapidapi.com API 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is an application that will display a real time 5 days weather forecast weather in three cities namely OTTAWA, MOSCOW and TOKYO. All weather was represented by an icon from http://openweathermap.org. Although due to the fact that the application is using API from  rapidapi.com on a free plan, we can only make 25 API Requests in 24hrs.
 
 ## Available Scripts
 
@@ -39,8 +39,4 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
