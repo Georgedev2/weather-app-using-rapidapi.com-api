@@ -105,14 +105,11 @@ const getFiveDaysForecast = (data: WeatherData[]): WeatherData[] => {
 };
 
 const WeatherCards: React.FC<Props> = ({ city }) => {
-  const [weatherData, setWeatherData] = useState<WeatherData[]>(
-    getFiveDaysForecast(mockData)
-  );
+  const [weatherData, setWeatherData] = useState<WeatherData[]>([]);
 
   const getWeatherData = async (arg: City) => {
     const options = {
       method: 'GET',
-
       url: `https://weatherbit-v1-mashape.p.rapidapi.com/forecast/daily?city=${city.city}&country=${city.countryCode}`,
       params: { units: 'metric' },
       headers: {
@@ -132,7 +129,7 @@ const WeatherCards: React.FC<Props> = ({ city }) => {
   };
 
   useEffect(() => {
-    // getWeatherData(city);
+    getWeatherData(city);
   }, [city.city]);
 
   return (
