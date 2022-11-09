@@ -1,10 +1,12 @@
 import styled, { css } from 'styled-components';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { mockData } from '../mock/data';
+
 import { getDate, getWeatherIconCode } from '../utils';
 import { PropagateLoader } from 'react-spinners';
 import { WeatherData } from '../type';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const buildIconURL = (weatherDescription: string) => {
   return `http://openweathermap.org/img/w/${getWeatherIconCode(
@@ -125,6 +127,7 @@ const WeatherCards: React.FC<Props> = ({ city }) => {
       })
       .catch((error) => {
         console.error(error);
+        toast(error.response.data.message);
       });
   };
 
@@ -178,6 +181,9 @@ const WeatherCards: React.FC<Props> = ({ city }) => {
           <PropagateLoader color="#2e6f85" />
         </CenterText>
       )}
+      <div>
+        <ToastContainer hideProgressBar />
+      </div>
     </>
   );
 };
