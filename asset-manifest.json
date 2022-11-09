@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/weather-app-using-rapidapi.com-api/static/css/main.605e2837.css",
-    "main.js": "/weather-app-using-rapidapi.com-api/static/js/main.a4a54f9f.js",
+    "main.css": "/weather-app-using-rapidapi.com-api/static/css/main.e6d012e1.css",
+    "main.js": "/weather-app-using-rapidapi.com-api/static/js/main.a334ee6e.js",
     "static/js/787.e3670615.chunk.js": "/weather-app-using-rapidapi.com-api/static/js/787.e3670615.chunk.js",
     "index.html": "/weather-app-using-rapidapi.com-api/index.html",
-    "main.605e2837.css.map": "/weather-app-using-rapidapi.com-api/static/css/main.605e2837.css.map",
-    "main.a4a54f9f.js.map": "/weather-app-using-rapidapi.com-api/static/js/main.a4a54f9f.js.map",
+    "main.e6d012e1.css.map": "/weather-app-using-rapidapi.com-api/static/css/main.e6d012e1.css.map",
+    "main.a334ee6e.js.map": "/weather-app-using-rapidapi.com-api/static/js/main.a334ee6e.js.map",
     "787.e3670615.chunk.js.map": "/weather-app-using-rapidapi.com-api/static/js/787.e3670615.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.605e2837.css",
-    "static/js/main.a4a54f9f.js"
+    "static/css/main.e6d012e1.css",
+    "static/js/main.a334ee6e.js"
   ]
 }
