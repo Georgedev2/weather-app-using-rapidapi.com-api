@@ -3,6 +3,12 @@
 This project is an application that will display a real time current weather data and also 4 days Future Weather forecast in three cities namely OTTAWA, MOSCOW and TOKYO. All weather was represented by an icon from http://openweathermap.org. Although due to the fact that the application is using API from  rapidapi.com on a free plan, we can only make 25 API Requests in 24hrs.
 
 click here  https://georgedev2.github.io/weather-app-using-rapidapi.com-api/ to see a live demo
+
+<img width="717" alt="Screenshot 2022-11-09 at 1 43 49 PM" src="https://user-images.githubusercontent.com/63282810/200844848-1c8eb9cc-a48d-4425-8e3b-4f3ecf954000.png">
+
+<img width="717" alt="Screenshot 2022-11-09 at 2 29 54 PM" src="https://user-images.githubusercontent.com/63282810/200844789-6cfd4a15-5c06-4e9a-8b0c-e108101b1b6b.png">
+
+
 ## Available Scripts
 
 In the project directory, you can run:
