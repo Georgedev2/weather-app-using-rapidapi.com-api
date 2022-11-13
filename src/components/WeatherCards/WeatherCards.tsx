@@ -14,6 +14,7 @@ import {
   Box,
   CenterText,
 } from './styles';
+import { mockData } from '../mock/data';
 
 const buildIconURL = (weatherDescription: string) => {
   return `http://openweathermap.org/img/w/${getWeatherIconCode(
@@ -44,6 +45,8 @@ const getFiveDaysForecast = (data: WeatherData[]): WeatherData[] => {
 };
 
 const WeatherCards: React.FC<Props> = ({ city }) => {
+  const mockWeatherData = getFiveDaysForecast(mockData);
+  //const [weatherData, setWeatherData] = useState<WeatherData[]>(mockWeatherData);// this should be use in situation where we have exceeded our permitted API calls which is 20 API request per 24hrs
   const [weatherData, setWeatherData] = useState<WeatherData[]>([]);
   const controller = new AbortController();
   const signal = controller.signal;
@@ -72,7 +75,7 @@ const WeatherCards: React.FC<Props> = ({ city }) => {
   };
 
   useEffect(() => {
-   getWeatherData(city);
+    getWeatherData(city);
     return () => {
       controller.abort();
     };
