@@ -1,11 +1,11 @@
 export const cities = [
   {
     id: 0,
-    city: 'OTTAWA',
-    lon: '45.424722',
-    lat: '-75.695',
+    city: 'LAGOS',
+    lon: '6.5244',
+    lat: '3.3792',
     isActive: true,
-    countryCode: 'CA',
+    countryTwoLetterAbbr: 'NG',
   },
   {
     id: 1,
@@ -13,7 +13,7 @@ export const cities = [
     lon: '55.755833',
     lat: '37.617222',
     isActive: false,
-    countryCode: 'RU', //RU is the two-letter country abbreviation for Russia.
+    countryTwoLetterAbbr: 'RU', //RU is the two-letter country abbreviation for Russia.
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ export const cities = [
     lon: '35.689722',
     lat: ' 139.692222',
     isActive: false,
-    countryCode: 'JP',
+    countryTwoLetterAbbr: 'JP',
   },
 ];
 
@@ -31,9 +31,8 @@ export const weatherIconCode = {
   'broken clouds': '04d',
   'overcast clouds': '04n',
   'scattered clouds': '03d',
-  'Clear Sky': '',
-  'Thunderstorm with heavy rain': '',
-  'Heavy rain': '',
-  'Light shower rain': '',
+  'Clear Sky': '01d',
+  'Thunderstorm with heavy rain': '11d',
+  'Heavy rain': '10d',
+  'Light shower rain': '10d',
 };
-

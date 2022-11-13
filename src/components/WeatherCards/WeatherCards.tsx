@@ -1,95 +1,32 @@
-import styled, { css } from 'styled-components';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-
 import { getDate, getWeatherIconCode } from '../utils';
 import { PropagateLoader } from 'react-spinners';
 import { WeatherData } from '../type';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {
+  Wrapper,
+  CardBox,
+  WeatherIcon,
+  TodaysCard,
+  BoldText,
+  Box,
+  CenterText,
+} from './styles';
 
 const buildIconURL = (weatherDescription: string) => {
   return `http://openweathermap.org/img/w/${getWeatherIconCode(
     weatherDescription
   )}.png`;
 };
-
-const Wrapper = styled.div`
-  border-radius: 10px;
-  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-  overflow: hidden;
-`;
-
-const CardBox = styled.div<{ isLastChild?: boolean }>`
-  width: 110px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px 0;
-  background-color: #cce5ed;
-  background-color: #d1eefc;
-  border-bottom: 1px solid #fff;
-  border-left: 1px solid #fff;
-  text-align: center;
-  border-right: ${(props) =>
-    css`
-      ${(props.isLastChild as boolean) ? '1px solid #fff' : ''}
-    `};
-`;
-
-const WeatherIcon = styled.img`
-  height: 48px;
-  margin: 1px 4px 0;
-  width: 48px;
-`;
-
-const TodaysCard = styled(CardBox)`
-  width: 100%;
-  border-top-left-radius: 11px;
-  border-top-right-radius: 11px;
-  border-top: 1px solid #fff;
-  border-right: 1px solid #fff;
-
-  & div:nth-child(1) {
-    margin-bottom: 20px;
-  }
-
-  & img {
-    height: 100px;
-    width: 100px;
-    margin-bottom: -30px;
-}
-  }
-  & .innerBox {
-    display: flex;
-    align-items: center;
-    & .description {
-      font-size: 40px;
-      font-weight: 400;
-      line-height: 5px;
-    };
-  };
-`;
-
-const BoldText = styled.span`
-  font-weight: 600;
-`;
-
-const Box = styled.section`
-  width: fit-content;
-  display: flex;
-`;
-
-const CenterText = styled.section`
-  text-align: center;
-`;
-
+const number = 5;
 interface City {
   id: number;
   city: string;
   lon: string;
   lat: string;
-  countryCode?: string;
+  countryTwoLetterAbbr?: string;
 }
 
 interface Props {
@@ -99,7 +36,7 @@ interface Props {
 const getFiveDaysForecast = (data: WeatherData[]): WeatherData[] => {
   const arr: any[] = [];
   data.forEach((element, idx) => {
-    if (idx <= 4 && idx !== 0) {
+    if (idx <= number && idx !== 0) {
       arr.push(element);
     }
   });
@@ -108,12 +45,15 @@ const getFiveDaysForecast = (data: WeatherData[]): WeatherData[] => {
 
 const WeatherCards: React.FC<Props> = ({ city }) => {
   const [weatherData, setWeatherData] = useState<WeatherData[]>([]);
+  const controller = new AbortController();
+  const signal = controller.signal;
 
   const getWeatherData = async (arg: City) => {
     const options = {
       method: 'GET',
-      url: `https://weatherbit-v1-mashape.p.rapidapi.com/forecast/daily?city=${city.city}&country=${city.countryCode}`,
+      url: `https://weatherbit-v1-mashape.p.rapidapi.com/forecast/daily?city=${city.city}&country=${city.countryTwoLetterAbbr}`,
       params: { units: 'metric' },
+      signal,
       headers: {
         'X-RapidAPI-Key': `${process.env.REACT_APP_X_RAPIdAPI_KEY}`,
         'X-RapidAPI-Host': 'weatherbit-v1-mashape.p.rapidapi.com',
@@ -132,7 +72,10 @@ const WeatherCards: React.FC<Props> = ({ city }) => {
   };
 
   useEffect(() => {
-    getWeatherData(city);
+   getWeatherData(city);
+    return () => {
+      controller.abort();
+    };
   }, [city.city]);
 
   return (
@@ -162,7 +105,10 @@ const WeatherCards: React.FC<Props> = ({ city }) => {
           <Box>
             {weatherData.map(
               ({ ts, temp, weather: { description } }: WeatherData, idx) => (
-                <CardBox key={ts} isLastChild={idx === 3 ? true : false}>
+                <CardBox
+                  key={ts}
+                  isLastChild={idx === number - 1 ? true : false}
+                >
                   <div>{getDate(ts)}</div>
                   <div>
                     <WeatherIcon
