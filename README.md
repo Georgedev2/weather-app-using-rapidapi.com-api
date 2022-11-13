@@ -1,6 +1,6 @@
 # This is a weather App using rapidapi.com API 
 
-This project is an application that will display a real time current weather data and also 4 days Future Weather forecast in three cities namely OTTAWA, MOSCOW and TOKYO. All weather was represented by an icon from http://openweathermap.org. Although due to the fact that the application is using API from  rapidapi.com on a free plan, we can only make 25 API Requests in 24hrs.
+This project is an application that will display a real time current weather data and also 4 days Future Weather forecast in three cities namely LAGOS, MOSCOW and TOKYO. All weather was represented by an icon from http://openweathermap.org. Although due to the fact that the application is using API from  rapidapi.com on a free plan, we can only make 25 API Requests in 24hrs.
 
 click here  https://georgedev2.github.io/weather-app-using-rapidapi.com-api/ to see a live demo
 
